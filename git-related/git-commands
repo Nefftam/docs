@@ -1,0 +1,58 @@
+git checkout master
+
+git branch 
+
+git branch -a 
+
+#remove all files
+git checkout .
+
+#remove changes from a particular file
+git checkout src/abc/xyz/Myfile.java
+
+#pull changes from remote
+git pull
+
+#checkout to a branch after doing git branch -a | grep <branchname>
+git checkout bugfix/lgscli
+
+# bringing changes to local branch
+git checkout master
+git pull
+git checkout <yourbranch>
+git rebase master
+git status
+
+# to see changes
+git diff <filename> or simply git diff
+
+git add cmd/dr/svgroup/snap/prepare.go
+
+git commit -m "CSCwb03595 : hxcli needs to be updated for storage volume group and snapshot apis"
+
+git push
+
+git commit --amend
+
+git push -f
+
+# delete branch from local
+git branch -D bugfix/lgsforce
+
+# cherry-pick changes from a commit-id
+git cherry-pick -x fa6b08b8d8aea4397e6bd57c239846182b69db2a
+
+git format-patch -1
+
+# clean up unstaged files and directory
+git clean -fd
+
+# create a patch file
+git diff > shahzad.patch
+
+
+git config --global --list
+git config --list
+
+
+
