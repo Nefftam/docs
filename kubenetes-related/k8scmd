@@ -1,0 +1,68 @@
+# create a POD
+kubectl create -f <filename.yaml> -n <namespace name>
+
+# display all pods with details
+kubectl get pods -A 
+
+# display all pods within the given namespace
+kubectl get pods -n <namespace name>
+
+
+# delete a running pod
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+world-generator-64bb8c8f9d-58tzf   1/1     Running   0          3m45s
+world-portal-5ffdc6988b-r8wxq      1/1     Running   0          2d14h
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl delete -f world-generator.yaml 
+serviceaccount "appd-account" deleted
+deployment.apps "world-generator" deleted
+service "world-generator" deleted
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl get pods
+NAME                               READY   STATUS        RESTARTS   AGE
+world-generator-64bb8c8f9d-58tzf   1/1     Terminating   0          4m34s
+world-portal-5ffdc6988b-r8wxq      1/1     Running       0          2d14h
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl get pods
+NAME                            READY   STATUS    RESTARTS   AGE
+world-portal-5ffdc6988b-r8wxq   1/1     Running   0          2d14h
+
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl create -f world-portal.yaml
+Error from server (AlreadyExists): error when creating "world-portal.yaml": serviceaccounts "appd-account" already exists
+Error from server (AlreadyExists): error when creating "world-portal.yaml": deployments.apps "world-portal" already exists
+Error from server (AlreadyExists): error when creating "world-portal.yaml": services "world-portal" already exists
+
+shahzhas@SHAHZHAS-M-F7DG demoapp % kubectl apply -f world-portal.yaml
+Warning: resource serviceaccounts/appd-account is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by either kubectl create --save-config or kubectl apply. The missing annotation will be patched automatically.
+serviceaccount/appd-account configured
+Warning: resource deployments/world-portal is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by either kubectl create --save-config or kubectl apply. The missing annotation will be patched automatically.
+deployment.apps/world-portal configured
+Warning: resource services/world-portal is missing the kubectl.kubernetes.io/last-applied-configuration annotation which is required by kubectl apply. kubectl apply should only be used on resources created declaratively by either kubectl create --save-config or kubectl apply. The missing annotation will be patched automatically.
+service/world-portal configured
+
+
+# get into pod and bash of pod
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl describe pods | grep "Name:"   
+Name:             world-generator-988df6cb9-4vdvz
+
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl exec -it world-generator-988df6cb9-4vdvz -- /bin/bash
+Defaulted container "world-generator" out of: world-generator, appd-agent-attach-java (init)
+root@world-generator-988df6cb9-4vdvz:/# 
+
+# executing command inside container 
+kubectl exec -it pod-name -- /bin/bash -c "command(s)"
+
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl exec -it world-generator-988df6cb9-4vdvz -- /bin/bash -c "ls /"
+
+Defaulted container "world-generator" out of: world-generator, appd-agent-attach-java (init)
+bin  boot  dev	docker-java-home  etc  home  java-services.jar	lib  lib64  media  mnt	opt  proc  root  run  sbin  srv  startup.sh  sys  tmp  usr  var
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
+
+
+
+
+
