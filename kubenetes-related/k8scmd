@@ -80,6 +80,9 @@ bin  boot  dev	docker-java-home  etc  home  java-services.jar	lib  lib64  media 
 shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
 shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
 
+# display content of a file present inside a pod
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl exec pod-name -- cat /tmp/myfile
+
 shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl exec pod-name -c container-name -it -- /bin/bash
 root@pod-name:/#
 
