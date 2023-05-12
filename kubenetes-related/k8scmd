@@ -80,6 +80,8 @@ bin  boot  dev	docker-java-home  etc  home  java-services.jar	lib  lib64  media 
 shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
 shahzhas@SHAHZHAS-M-F7DG cluster-agent % 
 
+shahzhas@SHAHZHAS-M-F7DG cluster-agent % kubectl exec pod-name -c container-name -it -- /bin/bash
+root@pod-name:/#
 
 # see logs of a pod
 kubectl logs <pod_name> -n <namespace_name>
