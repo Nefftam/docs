@@ -1,23 +1,45 @@
-Kubernetes is an orchestrator for containers
+Kubernetes 
+==========
+k8s is an orchestrator for containers, 
+It is immutable in nature (a new state is created on applying changes to the manifest file)
+It is declarative in nature
 
 Imperative : command based, what we want to do is written as command
+===========              We tell "How to do"
 Declarative : file based like yaml, what we want to do is declared in file
-
+===========              We tell "What to do without saying How to do"
+              
+kubernetes objects 
+==================
+k8s object are represented using json or yaml/yml
+Every object has unique name and UID
 Some kubernetes objects:
 pod                   volume                secrets             statefulset
 service               deployment            configmap           daemonset
 namespace             replicaset            jobs
 
 Manifest file
+=============
 Above objects are declared in yaml/yml files called as manifest files.
 
-In chef we have recipies
-In Ansible we have playbooks
-Similarly, in kubernetes we have manifest files
+In chef we have recipies, In Ansible we have playbooks , Similarly, in kubernetes we have manifest files
 
-Think of 
+Think of
+========
 Object as work to be done
 POD as VM
 Container as processes or some sort of application say java springboot web application @GetMapping
 
 Spec - desired state we want
+
+Relationship between kubernetes objects
+=======================================
+POD manages Container
+Replicaset manages POD
+Services exposes POD to POD communication or Outside to POD communication
+ConfigMap and Secret helps to configure pods 
+
+Controller
+==========
+Provides replication , roll-out, self-healing features as they don't come with k8s out of box.
+
