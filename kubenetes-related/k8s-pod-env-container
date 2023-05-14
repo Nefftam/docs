@@ -76,3 +76,11 @@ spec:
       image: httpd
       ports:
        - containerPort: 80  
+ 
+On applying this httpd exposes port 80 and so will our POD using containerPort variable
+After applying this yaml file , if we run curl <pod_ip>:80/
+we will get output -> it works
+
+************************************************************************************************************************************
+
+
