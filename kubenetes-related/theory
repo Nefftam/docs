@@ -37,6 +37,9 @@ Relationship between kubernetes objects
 POD manages Container
 Replicaset manages POD {maintains number of pods we ask in all situations}
 Deployment manages Replicaset
+  - it can provide updates and rollbacks to replicaset and PODs
+  - new replicaset will be created on update
+  - on rollback it can go to previous version of replicaset keeping number of nodes intact
 Services exposes POD to POD communication or Outside to POD communication
 ConfigMap and Secret helps to configure pods 
 
