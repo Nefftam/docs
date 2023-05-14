@@ -1,0 +1,23 @@
+Kubernetes is an orchestrator for containers
+
+Imperative : command based, what we want to do is written as command
+Declarative : file based like yaml, what we want to do is declared in file
+
+Some kubernetes objects:
+pod                   volume                secrets             statefulset
+service               deployment            configmap           daemonset
+namespace             replicaset            jobs
+
+Manifest file
+Above objects are declared in yaml/yml files called as manifest files.
+
+In chef we have recipies
+In Ansible we have playbooks
+Similarly, in kubernetes we have manifest files
+
+Think of 
+Object as work to be done
+POD as VM
+Container as processes or some sort of application say java springboot web application @GetMapping
+
+
