@@ -35,18 +35,18 @@ spec:
 *****************************************************************************************************
 EXAMPLE OF REPLICATION CONTROLLER
 
-kind: ReplicationController               
+kind: ReplicationController               # defines to create object of replication type
 apiVersion: v1
 metadata:
   name: myreplica
 spec:
-  replicas: 2            
-  selector:        
-    myname: Bhupinder Rajput                             
-  template:                
+  replicas: 2                             # defines desired number of pods
+  selector:                               # tells controller which pods to watch belonging to this RC
+    myname: Bhupinder                     # selector will use this to match label of the POD        
+  template:                               # defines template to launch a POD
     metadata:
       name: testpod6
-      labels:            
+      labels:                             # selector value needs to match label value specified in pod template
         myname: Bhupinder
     spec:
      containers:
