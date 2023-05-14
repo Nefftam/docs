@@ -35,7 +35,8 @@ Spec - desired state we want
 Relationship between kubernetes objects
 =======================================
 POD manages Container
-Replicaset manages POD
+Replicaset manages POD {maintains number of pods we ask in all situations}
+Deployment manages Replicaset
 Services exposes POD to POD communication or Outside to POD communication
 ConfigMap and Secret helps to configure pods 
 
