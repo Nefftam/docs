@@ -55,4 +55,12 @@ git config --global --list
 git config --list
 
 
+# resolve conflict
+git pull --no-ff
+In Intellij , resolve your conflict
+Next in Intellij , go to your commit section just below project section and accept your changes
+git commit
+git push
+
+
 
